@@ -129,6 +129,7 @@ function testGetVideoId() {
   console.log(videoId);
 }
 
+// Video Id가 잘못 저장되었을 경우 이 함수를 실행하여 바꿀 수 있음.
 function testSetVideoId() {
   setVideoId('yoS7S7VROv0');
   var videoId = getVideoId();
