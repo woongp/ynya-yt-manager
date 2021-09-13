@@ -4,7 +4,7 @@
 
 /***
  * 주일 예배 영상 Video ID를 가져오는 함수.
- * 매주 일요일 2pm에 실행되도록 스케줄
+ * 매주 일요일 2pm에 실행되도록 스케줄 세팅
  */
 function getSundayServiceVideoId() {
   var video = getVideoByEventType('completed');
@@ -21,7 +21,7 @@ function getSundayServiceVideoId() {
 }
 
 /***
- * 지난 주일 예배 영상을 unlist하는 함수.
+ * 저장된 VidioId 영상의 privacy status를 unlisted으로 바꾸는 함수.
  * 원하는 시간에 실행되도록 스케줄 세팅
  */
 function unlistVideo() {
@@ -29,7 +29,7 @@ function unlistVideo() {
 }
 
 /***
- * 지난 주일 예배 영상을 unlist하는 함수.
+ * 저장된 VidioId 영상의 privacy status를 private으로 바꾸는 함수.
  * 원하는 시간에 실행되도록 스케줄 세팅
  */
 function privateVideo() {
@@ -39,6 +39,7 @@ function privateVideo() {
 /***
  * Video의 PrivacyStatus를 변경하는 함수.
  *  - ScriptProperties에 저장된 Video ID를 사용함.
+ *  - available status: unlisted, private
  */
 function updateVideoPrivacyStatus(status) {
   var VideoId = getVideoId();
