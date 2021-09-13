@@ -7,7 +7,7 @@
  * 매주 일요일 2pm에 실행되도록 스케줄 세팅
  */
 function getSundayServiceVideoId() {
-  var video = getVideoByEventType('completed');
+  var video = getVideoByEventType('live');
   if (video) {
     console.log('getSundayServiceVideoId', video.id.videoId);
     setVideoId(video.id.videoId);
@@ -114,7 +114,6 @@ function getVideoId() {
  * 이메일로 알림을 보내는 함수
  */
 function sendNotification(subject, message) {
-  // MailApp.sendEmail('woongp@gmail.com', subject, message);
   MailApp.sendEmail({
     to: "ynya.creative@gmail.com",
     subject: subject,
@@ -122,11 +121,29 @@ function sendNotification(subject, message) {
   });
 }
 
-function test() {
-  // sendNotification('test send email from apps scripts', 'body');
-  // setVideoId('yoS7S7VROv0');
-  // console.log(getVideoId());
-  // var scriptProperties = PropertiesService.getScriptProperties();
-  // scriptProperties.deleteProperty('videoId');
-  // getVideoIdByEventType('completed');
+/***
+ * test functions
+ */
+function testGetVideoId() {
+  var videoId = getVideoId();
+  console.log(videoId);
+}
+
+function testSetVideoId() {
+  setVideoId('yoS7S7VROv0');
+  var videoId = getVideoId();
+  console.log(videoId);
+}
+
+// 주일 예배시간에 테스트를 해야 값을 가져올 수 있음
+function testGetSundayServiceVideoId() {
+  getSundayServiceVideoId();
+}
+
+function testUnlistVideo() {
+  unlistVideo();
+}
+
+function testPrivateVideo() {
+  unlistVideo();
 }
